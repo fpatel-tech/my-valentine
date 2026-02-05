@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MY Valentine</title>
+        <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
+
+            body {
+                height: 100vh;
+                margin: 0;
+                display: grid;                      
+                place-items: center;
+                font-family: system-ui, sans-serif;
+                background: #fff1f5;
+            }
+
+ 
+
+            .card {
+                background: white;
+                padding: 3rem;
+                border-radius: 20px;
+                text-align: center;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                transition: opacity 0.4s ease; 
+
+            }
+           
+            .message {
+                 margin-top: 8px;
+                 font-size: 1.05rem;
+                 color: #666;
+                font-style: italic;
+                opacity: 0.8;
+            }
+            .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            button {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.5rem;
+                border: none;
+                cursor: pointer;
+            }
+            #yes {
+                background-color: #ff4d6d;
+                color: white;
+            }
+
+            #no {
+                background-color: #f1f3f5;
+                color: black;
+            }
+
+            .gift-btn {
+                  margin-top: 20px;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gift-btn:hover {
+    background-color: #e63e5c;
+}
+
+.envelope {
+    width: 320px;
+    height: 200px;
+    background: #ffccd5;
+    position: relative;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffb3c1;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff8fa3;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.6s ease;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+.letter p {
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.3px;
+}
+
+
+   .letter {
+    background:
+        linear-gradient(0deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+        repeating-linear-gradient(
+            0deg,
+            #f4ede4,
+            #f4ede4 1px,
+            #fffaf0 1px,
+            #fffaf0 26px
+        );
+
+    padding: 2.2rem;
+    border-radius: 8px;
+    max-width: 420px;
+    margin: auto;
+
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #3a2f2f;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    border: 1px solid #e7d6c9;
+
+    transform: rotate(-0.6deg);   /* slight natural tilt */
+}
+
+
+.letter h2 {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #c9184a;
+}
+
+    .back-btn {
+        margin-top: 20px;
+        background: none;
+        border: none;
+        color: #c9184a;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: underline;
+
+    }        
+
+             @keyframes shake {
+                0% { transform: translateX(0);}
+                25% { transform: translateX(-6px);}
+                50%{ transform: translateX(6px);}
+                75%{ transform: translateX(-6px);}
+                100%{ transform: translateX(0);}
+
+
+            }
+
+            .heart {
+
+                position: fixed;
+                font-size: 2rem;
+                animation: float 2s ease forwards;
+                pointer-events: none;
+            }
+
+            .reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.polaroid {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.polaroid::after {
+    content: "❤";
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    color: #ff4d6d;
+}
+
+
+            @keyframes float {
+                from {
+                    transform: translateY(0);
+                    opacity: 1; 
+                }
+                to {
+                    transform: translateY(-120px);
+                    opacity: 0;
+
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="card">
+        <h1>Faiz, Will you be my Valentine? 
+            <span style="color:#ff4d6d;">&#10084;</span> </h1>
+
+            <p class="message"> Life is better by your side</p>
+            <div class="buttons">
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+                </div>
+            </div>
+            <script>
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    const card = document.querySelector(".card");
+
+  
+    function showMessage(message) {
+        card.style.opacity = 0;
+
+        setTimeout(() => {
+            card.innerHTML = message;
+            card.style.opacity = 1;
+        }, 300);
+    }
+
+   
+    function explodeHearts() {
+        for (let i = 0; i < 12; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.textContent = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "70vh";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 2000);
+        }
+    }
+
+   
+    no.addEventListener("mouseenter", () => {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        no.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    
+    yes.addEventListener("click", () => {
+    explodeHearts();
+    showMessage(`
+        <h1>
+            Yay <span style="color:#ff4d6d;">🎉</span><br>
+            Happy Valentine Day Baby! 😘
+        </h1>
+        <p class="after-msg">
+            You've made me the happiest person in the world!❤️
+            </p>
+        
+            <button class="gift-btn" onclick="showGift()">
+            See my gift 🧧
+            </button>
+        `);
+
+});
+
+    
+    no.addEventListener("click", () => {
+        document.body.style.animation = "shake 0.4s";
+        setTimeout(() => document.body.style.animation = "", 400);
+
+        showMessage('<h1>Oh no… still friends? <span style="color:#ff4d6d;">💔</span></h1>');
+    });
+
+   function showGift() {
+    showMessage(`
+        <div class="envelope" onclick="openEnvelope(this)">
+            <div class="flap"></div>
+            <p style="padding-top:120px; font-weight:600;">
+                Click to open 💌
+            </p>
+        </div>
+    `);
+}
+function openEnvelope(el) {
+    el.classList.add("open");
+    setTimeout(showLetter, 600);
+}
+
+    function showLetter() {
+       showMessage(`
+       <div class="letter">
+        <h2>My Love 💋</h2>
+            <p>
+                sometimes I think about how fast life changed for us. From waiting, hoping, imagining.....to actually living  this life together. Its been six months since we became husband and wife
+                and yet it feels like you've always been a part of me.
+            </p>    
+            <p>
+
+                Marriage did not turn life into something perfect or dreamy, but it made it meaningful. We have routines now, small habits, quiet moments, silly talks, tired days. But in all
+                of it, one thing feels steady: you. You make even the most ordinary days feels better.
+                </p>
+                <p>
+
+                I've learned that love is not only about big moments. It's in the way you're there, the way you listen, the way you answer my silly questions, the way you patiently answer every time I ask how much you love me, without ever getting irritated,
+                the way we share life as it is. You have become my comfort, my home.
+                </p>
+                <p>
+
+
+                I may not have much right now, but with you, I feel like I have everything. sometimes you might think I'm not happy, but that's never true. I could not be happier than I am with you. I don't need material things to feel fulfilled; you alone are 
+                enough to lift my mood and fill my heart. I'll always be greatful to my parents for bringing you into my life. Trust me when I say this- I am truly happy with you.
+               </p>
+               <p>
+                You are the one who understands my moods, the one who can make me happy. There is still so much life ahead of us, and I want all of it with you. The good days, the hard ones, the boring ones and everything in between.
+                </p>
+                <p>
+                
+                I love you for who you are and for how you make life feel easier. I love you more with time, in ways I did not even know were possible.
+                 </p>
+                 <p>
+                
+                I hope my love always feels like home to you. You are and always will be, my favorite part of life.
+                </p>
+                <p>
+                I choose you today, tomorrow, and for all the days ahead. I hope we grow old together :)
+                </p>
+                <p>
+                Will you stay mine, forever?
+                </p>
+                
+<p><strong>Forever yours💋</strong><br>Farheen</p>
+ <button class="back-btn" onclick="location.reload()">← Go back</button>
+        </div>
+    `);
+
+    }
+</script>     
+      
+    </body>
+</html>
